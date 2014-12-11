@@ -5,8 +5,9 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build -t brownman/docker_rootless .:
-      timeout: 600
+    - chmod +x ./docker_build.sh
+    - bash -c ./docker_build.sh:
+        timeout: 600
    # https://gist.github.com/billhorsman/3605244
     
 test:
