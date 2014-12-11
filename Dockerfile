@@ -1,7 +1,6 @@
-# pgolm/docker-gitlab-ci-runner
-
 FROM        ubuntu:12.10
 MAINTAINER  pgolm "golm.peter@gmail.com"
+# pgolm/docker-gitlab-ci-runner
 
 ENV DEBIAN_FRONTEND noninteractive
 
