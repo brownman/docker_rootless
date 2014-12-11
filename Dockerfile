@@ -3,16 +3,22 @@
 FROM        ubuntu:12.10
 MAINTAINER  pgolm "golm.peter@gmail.com"
 
+ENV DEBIAN_FRONTEND noninteractive
+
 # Config
 ENV 		INSTALL_RUBY_VERSION 2.1.0
 
 # apt-get deps
-RUN         apt-get update -y
-RUN         apt-get install -y -q sudo wget git build-essential libicu-dev \ 
- lsb-release software-properties-common tklib zlib1g-dev libssl-dev \
- libreadline-gplv2-dev libxml2 libxml2-dev libxslt1-dev
+RUN apt-get update -y
+RUN apt-get upgrade -y
 
-RUN 		add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe restricted multiverse"
+#RUN         apt-get install -y -q sudo wget git build-essential libicu-dev \ 
+# lsb-release software-properties-common tklib zlib1g-dev libssl-dev \
+# libreadline-gplv2-dev libxml2 libxml2-dev libxslt1-dev
+RUN apt-get install -y curl libxml2-dev libxslt-dev libcurl4-openssl-dev libreadline6-dev libssl-dev patch build-essential zlib1g-dev openssh-server libyaml-dev libicu-dev
+
+
+#RUN 		add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe restricted multiverse"
 
 # switch priveleges
 RUN 		adduser --disabled-login --gecos 'GitLab CI Runner' gitlab_ci_runner
