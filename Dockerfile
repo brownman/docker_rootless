@@ -1,4 +1,4 @@
-FROM        ubuntu:12.04
+FROM        ubuntu:14.04
 MAINTAINER  pgolm "golm.peter@gmail.com"
 # pgolm/docker-gitlab-ci-runner
 
