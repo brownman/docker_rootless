@@ -9,3 +9,4 @@ avoid permission problems
 base
 ---
 - https://github.com/pgolm/docker-gitlab-ci-runner
+- https://github.com/gitlabhq/gitlab-ci-runner/blob/master/Dockerfile
