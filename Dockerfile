@@ -15,8 +15,12 @@ RUN apt-get upgrade -y
 RUN apt-get install -y curl libxml2-dev libxslt-dev libcurl4-openssl-dev libreadline6-dev libssl-dev patch build-essential zlib1g-dev openssh-server libyaml-dev libicu-dev \
  wget git build-essential libicu-dev \ 
  lsb-release software-properties-common tklib zlib1g-dev libssl-dev \
- libreadline-gplv2-dev libxml2 libxml2-dev libxslt1-dev
+libxml2 libxml2-dev libxslt1-dev
+# libreadline-gplv2-dev 
 
+#The following packages have unmet dependencies:
+# libreadline-gplv2-dev : Conflicts: libreadline6-dev but 6.3-8ubuntu1 is to be installed
+# libreadline6-dev : Conflicts: libreadline-gplv2-dev but 5.2+dfsg-2 is to be installed
 #RUN 		add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) main universe restricted multiverse"
 
 # switch priveleges
