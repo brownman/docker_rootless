@@ -12,5 +12,5 @@ dependencies:
     
 test:
   override:
-     - docker run -d -p 3000:3000 brownman/docker_rootless; sleep 10
-     - curl --retry 10 --retry-delay 5 -v http://localhost:3000
+    # - docker run -d -p 3000:3000 brownman/docker_rootless; sleep 10
+    # - curl --retry 10 --retry-delay 5 -v http://localhost:3000
