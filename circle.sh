@@ -23,7 +23,7 @@ run1(){
 
 
 run1 env env > $dir1/env.txt
-run1 netstat 'mongod --fork -f /etc/mongodb.conf; sleep 1; netstat -ntlp'
+#run1 netstat 'mongod --fork -f /etc/mongodb.conf; sleep 1; netstat -ntlp'
 run1 npm_packages1 'ls `npm root -g`'
 run1 bashrc_root 'cat /root/.bashrc'
 run1 ps 'ps aux'
