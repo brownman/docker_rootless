@@ -1,14 +1,24 @@
 machine:
   services:
     - docker
-
+  environment:
+    CONTAINER: 'brownman/docker_rootless'
+    timeout: 600
+    #'ubuntu:14.10'
+    
 dependencies:
-  override:
-    - docker info
-    - chmod +x ./docker_build.sh
-    - bash -c ./docker_build.sh:
-        timeout: 600
+  cache_directories:
+    - "~/docker"
+
    # https://gist.github.com/billhorsman/3605244
+  override:
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
+    - docker build -t $CONTAINER .
+    - mkdir -p ~/docker; docker save $CONTAINER > ~/docker/image.tar
+  #  - docker info
+  #  - chmod +x ./docker_build.sh
+  #  - bash -c ./docker_build.sh:
+    #    timeout: 600
     
 test:
   override:
